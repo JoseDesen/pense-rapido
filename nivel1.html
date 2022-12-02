@@ -1,0 +1,77 @@
+<html>
+	<head>
+		<meta charset="UTF-8"/>
+		<title>pensei rapido - fácil</title>
+	</head>
+<style>
+*{
+text-align:center;
+}
+div,input{
+	font-size:50px;
+	}
+	div,h1{
+		color:purple;
+		}
+</style>
+<script type="text/javascript">
+var meuInterval;
+var num=10;
+var resultado;
+function a(modo){
+if(modo=="ir"){
+	document.f.t.value="";
+	num=11;
+document.f.b.disabled=true;
+document.f.t.disabled=false;
+document.f.v.disabled=false;
+var valor1=Math.floor(Math.random() * 10)+1;
+var valor2=Math.floor(Math.random() * 10)+1;
+resultado=valor1*valor2;
+var o=document.getElementById('operacao');
+o.innerHTML="<div id='operacao'>"+valor1+"X"+valor2+"</div>";
+meuInterval = setInterval(function() {
+num--;	
+if(num==-1){
+	num=0;
+	}
+var c=document.getElementById('crono');
+c.innerHTML=num;	
+}, 1000);
+}
+if(modo=="verificar"){
+	var controlar=document.f.t.value;
+if(controlar){
+document.f.b.disabled=false;
+document.f.t.disabled=true;
+document.f.v.disabled=true;
+
+clearInterval(meuInterval);
+var c=document.getElementById('crono');
+c.innerHTML=num;
+resposta=document.f.t.value;
+document.f.b.value="de novo";
+if(num>0){
+if(resposta==resultado){
+	alert("está certo");
+	}else{
+		alert("está errado, a resposta certa é: "+resultado);
+		}
+}else{
+	alert("o tempo acabou, tente novamente");
+	}
+}
+}
+}
+</script>
+
+<body bgcolor="black">
+	<div>Pense rápido - nivel fácil</div>
+<div id="crono">10</div>
+<form name="f">
+<input type="button" onclick="a('ir')" value="começar" name="b" style="background-color:red;">
+	<div id="operacao"></div><input type="number" name="t" disabled>
+<input type="button" name="v" onclick="a('verificar')" value="verificar" disabled style="background-color:red;">
+</form>
+</body>
+</html>
