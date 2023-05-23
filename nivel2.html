@@ -22,10 +22,10 @@ function a(modo){
 if(modo=="ir"){
 	document.f.t.value="";
 	num=21;
-document.getElementById('tela').focus();
 document.f.b.disabled=true;
 document.f.t.disabled=false;
 document.f.v.disabled=false;
+document.getElementById('tela').focus();
 var valor1=Math.floor(Math.random() * 10)+11;
 var valor2=Math.floor(Math.random() * 10)+11;
 resultado=valor1*valor2;
@@ -70,8 +70,8 @@ if(resposta==resultado){
 	<div>Pense rápido - nivel médio</div>
 <div id="crono">20</div>
 <form name="f">
-<input type="button" onclick="a('ir')" id="tela" value="começar" name="b" style="background-color:red;">
-	<div id="operacao"></div><input type="number" name="t" disabled>
+<input type="button" onclick="a('ir')"  value="começar" name="b" style="background-color:red;">
+	<div id="operacao"></div><input type="number" name="t" id="tela" disabled>
 <input type="button" name="v" onclick="a('verificar')" value="verificar" style="background-color:red;" disabled >
 </form>
 </body>
